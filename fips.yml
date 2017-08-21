@@ -1,0 +1,9 @@
+# rpi-gpio
+---
+
+exports:
+    header-dirs:
+        - rpi-gpio
+    modules:
+        rpi-gpio: .
+
