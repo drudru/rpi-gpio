@@ -254,12 +254,18 @@ volatile unsigned *mmapGpio::mapRegAddr(unsigned long baseAddr){
 }
 
 
+void mmapGpio::play_tone(uint8_t pin, uint32_t frequency, uint32_t millis)
+{
+    uint32_t ucycle      = 1000000 / frequency;
+    uint32_t uhalf_cycle = ucycle / 2;
+    uint32_t loops       = (millis * 1000) / ucycle;
 
-
-
-
-
-
-
-
+    for (int i = 0; i < loops; i++)
+    {
+        writePinHigh(pin);
+        usleep(uhalf_cycle);
+        writePinLow(pin);
+        usleep(uhalf_cycle);
+    }
+}
 

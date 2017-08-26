@@ -1,5 +1,5 @@
 #ifndef MMAPGPIO_H
-    #define MMAPGPIO_H
+#define MMAPGPIO_H
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -9,6 +9,7 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
+#include <stdint.h>
 
 /***********************************************************************
  * Author: Hussam Al-Hertani (Hertaville.com)
@@ -57,6 +58,9 @@ public:
     void writePinState(unsigned int pinnum, const unsigned int &pinstate);
 	void inline writePinHigh(unsigned int pinnum){*(this->gpio + GPFSET0) = (1 << pinnum);}
 	void inline writePinLow(unsigned int pinnum){*(this->gpio + GPFCLR0) = (1 << pinnum);}
+
+    // Play a square wave via a gpio pin (probably to piezo)
+    void play_tone(uint8_t pin, uint32_t frequency, uint32_t millis);
 
     //gpio registers
 	static const unsigned int GPFSET0 = 7;
