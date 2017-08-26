@@ -2,7 +2,7 @@
 
 A C++ wrapper for the Raspberry Pi GPIO pins.
 
-This has a [fips](https://github.com/floooh/fips) build support for easy integration into your project.
+This has support for the [fips](https://github.com/floooh/fips) build system to make it easy to integrate into your project.
 
 ## License
 
